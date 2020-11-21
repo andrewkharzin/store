@@ -7,7 +7,7 @@ import { savePaymentMethod } from '../actions/cartActions'
 
 const PaymentScreen = ({ history }) => {
 
-    const cart = useSelector(state => state.cart)
+    const cart = useSelector((state) => state.cart)
     const { shippingAddress } = cart
 
     if (!shippingAddress) {
@@ -21,7 +21,7 @@ const PaymentScreen = ({ history }) => {
 
     const submitHandler = (e) => {
         e.preventDefault()
-        dispatch(setPaymentMethod(paymentMethod))
+        dispatch(savePaymentMethod(paymentMethod))
         history.push('/placeorder')
     }
 
@@ -44,7 +44,7 @@ const PaymentScreen = ({ history }) => {
                             onChange={(e) => setPaymentMethod(e.target.value)}>
 
                         </Form.Check>
-                        <Form.Check
+                        {/* <Form.Check
                             type='radio'
                             label='Stripe'
                             id='Stripe'
@@ -52,7 +52,7 @@ const PaymentScreen = ({ history }) => {
                             value='Stripe'
                             onChange={(e) => setPaymentMethod(e.target.value)}>
 
-                        </Form.Check>
+                        </Form.Check> */}
                     </Col>
                 </Form.Group>
                 <Button type='submit' variant='primary'>
